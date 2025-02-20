@@ -39,7 +39,7 @@ export class CounterApp extends DDDSuper(I18NMixin(LitElement)) {
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      count: {type: Number, reflect: true},
     };
   }
 
@@ -52,6 +52,10 @@ export class CounterApp extends DDDSuper(I18NMixin(LitElement)) {
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
+      }
+      :host([count="10"]) {
+        color: var(--ddd-theme-default-athertonViolet)
+
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
@@ -67,10 +71,18 @@ export class CounterApp extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
+  <div class="counter">21</div>
+  <div class="buttons">
+    <button>-1</button>
+    <button>+1</button>
+  </div>
 </div>`;
   }
+  increase() {
+    this.count++;
+
+  }
+  decrease
 
   /**
    * haxProperties integration via file reference
