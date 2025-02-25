@@ -89,7 +89,9 @@ export class CounterApp extends DDDSuper(I18NMixin(LitElement)) {
   <div class='counter'>${this.count}</div>
   <div class="buttons">
     <button @click="${this.decrease}" >-1</button>
+    <button @click="${this.reset}">reset</button>
     <button @click="${this.increase}">+1</button>
+    
   </div>
   <div class= Maxmin>
   Max value
